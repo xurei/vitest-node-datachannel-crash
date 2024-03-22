@@ -36,8 +36,4 @@ describe('vitest-node-datachannel-crash', () => {
     peer2.destroy();
     await new Promise(r => setTimeout(r, 1000));
   }, 30000);
-  
-  afterAll(() => {
-    nodeDataChannel.cleanup();
-  });
 });
