@@ -1,4 +1,4 @@
-import {describe, expect, test} from 'vitest';
+import {describe, expect, test, afterEach, afterAll} from 'vitest';
 import Peer from 'simple-peer';
 import nodeDatachannelPolyfill from 'node-datachannel/polyfill';
 import nodeDataChannel from 'node-datachannel';
@@ -36,4 +36,8 @@ describe('vitest-node-datachannel-crash', () => {
     peer2.destroy();
     await new Promise(r => setTimeout(r, 1000));
   }, 30000);
+  
+  afterAll(() => {
+    nodeDataChannel.cleanup();
+  });
 });
